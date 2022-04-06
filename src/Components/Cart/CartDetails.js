@@ -6,25 +6,24 @@ import { store } from "../redux/store"
 
 export const CartDetails = ()=> {
 
-
+    
+    let totalPrice;
 
     const storeData = useSelector((state)=> state.MyActions)
-
     
-    const totalPrice = storeData.allProducts.map((e)=> e.price ).reduce((prev, next)=> prev+next)
+    if(storeData.allProducts.length > 1){
+            totalPrice = storeData.allProducts.map((e)=> e.price ).reduce((prev, next)=> prev+next)
+     }
+   
 
 
-
-
-    return(
-    
-    <div className="container">
+    return( <div className="container">
             <div className="row">
                 <div className="col-md-6 ">
                     <h1 className="Display-1">Shopping Cart List</h1>
                 </div>
                 <div className="col-md-6 border shadow-lg p-4">
-                    {storeData.allProducts.length >=1 ?            
+                 {storeData.allProducts.length > 1 ? 
                     <ul className="list-unstyled">
                         {storeData.allProducts.map((val)=>{
                                     return <li className="row my-3 border-bottom pb-2 ">
@@ -48,11 +47,11 @@ export const CartDetails = ()=> {
                                                         <h5>Total: </h5>
                                                 </div>
                                                 <div className="col-4 text-right" style={{textAlign:'right'}}>
-                                                        <h5>  ${totalPrice.toFixed(3)}</h5>
+                                                        <h5>  ${totalPrice ? totalPrice.toFixed(3) : null  }</h5>
                                                 </div>
                                 </li>
                         
-                    </ul> :  <p>Please Select Some Items</p> }
+                    </ul>  : <p>Please Select Some Items</p> }
                 </div>
 
             </div>

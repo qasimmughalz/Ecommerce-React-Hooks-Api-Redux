@@ -8,9 +8,9 @@ export const AddToCart = (id)=>{
 }
 
 
-export const setDataToApi= (id)=>{
+export const setDataToApi= (data)=>{
     return {
         type: 'setDataToApi',
-        payload : id
+        payload : data
     }
 }

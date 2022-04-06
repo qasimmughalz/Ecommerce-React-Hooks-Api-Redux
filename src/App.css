@@ -2,7 +2,15 @@
   margin-top: 4%;
 }
 
+body{
+  background-color: #eee;
+}
+
 a{
   color: #000;
   text-decoration: none;
+}
+
+li{
+  list-style: none;
 }

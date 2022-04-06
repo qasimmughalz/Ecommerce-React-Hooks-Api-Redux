@@ -7,12 +7,9 @@ import { setDataToApi } from "../redux/actions";
 import { MyActions } from "../redux/reducer";
 import { store } from "../redux/store";
 import { Cart } from "../Cart/Cart";
-
-
-
-
-
-
+import { RealTime } from "../FIlters/Realtime";
+import { ManualFilter } from "../FIlters/Manual";
+import { CheckBox } from "../FIlters/CheckBox";
 
 
 
@@ -23,13 +20,13 @@ export const Home = () => {
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
+  const StoreData = useSelector(state=> state.MyActions)
 
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios
         .get("https://fakestoreapi.com/products/")
         .then((res) => {
-          console.log("api data", res);
           setData(res.data);
           setDisplay(res.data);
           dispatch(setDataToApi(res.data));
@@ -51,30 +48,41 @@ export const Home = () => {
   }, [search]);
 
 
+    function handleGetFromChild(val){
+        setSearch(val)
+    }
+    
 
-  const StoreData = useSelector(state=> state.MyActions)
 
-    console.log("Cart Products" , StoreData.allProducts)
- 
 
-  console.log()
+
 
   return (
-    <div className="container mt-5">
-      <div style={{ textAlign: "right" }}>
-            <Cart></Cart>    
+    <div className="container-fluid mt-5">
+      <Cart></Cart>    
+      <div>
+      <h3 className="display-4 my-4 text-center"> Shop</h3>
+
+
+      {/* ============= FILTERS ================= */}
+
+      <div className="row">
+        <div className="col-md-2 shadow-lg border ">
+
+            <h3 className="mt-3">Filters</h3>
+
+            <RealTime value={search} GetFromChild={handleGetFromChild}></RealTime>
+          <hr></hr>
+            <ManualFilter></ManualFilter>
+        <hr></hr>
+            <CheckBox></CheckBox>
+
         </div>
 
-      <div className="m-auto">
-        <h3 className="display-4 my-4 text-center"> Shop</h3>
-        <input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="search"
-          className="form-control my-5"
-        ></input>
+        <div className="col-md-10">
 
-        {display.length > 1 ? (
+
+        {display.length >= 1 ? (
           <div className="row">
             {display.map((val) => {
               return (
@@ -93,8 +101,12 @@ export const Home = () => {
             })}
           </div>
         ) : (
-          <p className="text-center">loading...</p>
+          <p className="text-center">loading ...</p>
         )}
+
+        </div>
+      </div>
+
       </div>
     </div>
   );

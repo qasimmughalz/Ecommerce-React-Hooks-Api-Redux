@@ -11,7 +11,7 @@ export const Cart = ()=>{
     const cartData = useSelector(state=> state.MyActions)
 
 
-    return  <div>
+    return  <div style={{ textAlign: "right" }}>
 
                  <Link to='/cart'>
                  <p> My Cart : {cartData.mycart} </p>
