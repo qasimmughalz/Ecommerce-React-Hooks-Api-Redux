@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 
-export const CheckBox = ()=>{
+export const CheckBox = ({setFilteredData})=>{
 
 
     const category = [
@@ -14,8 +14,8 @@ export const CheckBox = ()=>{
 
 
     const [myList, setMyList]= useState([])
-    const [Apidaa, setApiData] = useState([])
-
+    const [Apidata, setApiData] = useState([])
+    const [filtered, setFIltered] = useState([])
 
 
     useEffect(()=> {
@@ -28,15 +28,24 @@ export const CheckBox = ()=>{
             .then((data)=> setApiData(data.data) )
         }   
         fetched()
-
     }, [])
+
 
     useEffect(()=>{
 
+    const CheckedFilter = myList.filter((val)=> val.isChecked == true)
+    console.log("filtered", CheckedFilter)
+    
+    const categories = CheckedFilter.map((data)=> data.name)
+    console.log("filtered name", categories) 
+    
+    const final = Apidata.filter((e)=> categories.some((val)=> val == e.category))
+    console.log(final)
+
+    setFilteredData(final)
+
     }, myList)
     
-
-
 
     const handleChange = (e)=>{
         let {name , checked} = e.target
@@ -52,10 +61,6 @@ export const CheckBox = ()=>{
         }
         
     }
-
-
-    
-
 
 
     return(
@@ -77,10 +82,6 @@ export const CheckBox = ()=>{
                         />{data.name}
                      </li> 
             })}
-
-            
-
-
 
 
         </div>

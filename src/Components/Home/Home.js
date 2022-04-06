@@ -51,6 +51,14 @@ export const Home = () => {
     function handleGetFromChild(val){
         setSearch(val)
     }
+
+    function filteredData(val){
+        if(val.length > 0){
+          setDisplay(val)
+        }else{
+          setDisplay(data)
+        }
+    }
     
 
 
@@ -75,7 +83,7 @@ export const Home = () => {
           <hr></hr>
             <ManualFilter></ManualFilter>
         <hr></hr>
-            <CheckBox></CheckBox>
+            <CheckBox setFilteredData={filteredData} ></CheckBox>
 
         </div>
 
