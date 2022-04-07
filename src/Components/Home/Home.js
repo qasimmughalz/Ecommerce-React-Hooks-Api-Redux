@@ -10,6 +10,7 @@ import { Cart } from "../Cart/Cart";
 import { RealTime } from "../FIlters/Realtime";
 import { ManualFilter } from "../FIlters/Manual";
 import { CheckBox } from "../FIlters/CheckBox";
+import { DataPagination } from "../Pagination/DataPagination";
 
 
 
@@ -79,39 +80,17 @@ export const Home = () => {
 
             <h3 className="mt-3">Filters</h3>
 
-            <RealTime value={search} GetFromChild={handleGetFromChild}></RealTime>
-          <hr></hr>
-            <ManualFilter></ManualFilter>
-        <hr></hr>
+            <RealTime value={search} GetFromChild={handleGetFromChild}></RealTime><hr/>
+            <ManualFilter></ManualFilter><hr/>
             <CheckBox setFilteredData={filteredData} ></CheckBox>
 
         </div>
 
         <div className="col-md-10">
 
+         <DataPagination DataLength={display.length} data={display} />
 
-        {display.length >= 1 ? (
-          <div className="row">
-            {display.map((val) => {
-              return (
-                <Cards
-                  key={val.id}
-                  id={val.id}
-                  price={val.price}
-                  title={val.title}
-                  url={val.image}
-                  category={val.category}
-                  des={val.description}
-                  rating={val.rating.rate}
-                  ratingCount={val.rating.count}
-                ></Cards>
-              );
-            })}
-          </div>
-        ) : (
-          <p className="text-center">loading ...</p>
-        )}
-
+       
         </div>
       </div>
 
