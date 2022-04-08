@@ -34,17 +34,14 @@ export const CheckBox = ({setFilteredData})=>{
     useEffect(()=>{
 
     const CheckedFilter = myList.filter((val)=> val.isChecked == true)
-    console.log("filtered", CheckedFilter)
     
     const categories = CheckedFilter.map((data)=> data.name)
-    console.log("filtered name", categories) 
     
     const final = Apidata.filter((e)=> categories.some((val)=> val == e.category))
-    console.log(final)
 
     setFilteredData(final)
 
-    }, myList)
+    }, [myList])
     
 
     const handleChange = (e)=>{
@@ -52,12 +49,11 @@ export const CheckBox = ({setFilteredData})=>{
         if(name == 'allSelect'){
             let temp = myList.map((val)=>  {  
                 return  { ...val, isChecked:checked} })
-                console.log(temp)
+                
             setMyList(temp)
         }else{
             let temp = myList.map((val)=> val.name == name ? {...val, isChecked: checked} :val)
             setMyList(temp)
-            console.log("selected", temp)
         }
         
     }

@@ -14,7 +14,6 @@ export const Cards = ({id, price,title,url, rating, ratingCount, category , des}
 
     const [show, setShow] = useState(false)
     function handleCart(id){
-        console.log("selected" , id)
         dispatch(AddToCart(id))
     }
 
@@ -31,8 +30,8 @@ export const Cards = ({id, price,title,url, rating, ratingCount, category , des}
                     <small className="text-muted">{category}</small> 
                     {show ? <button className="btn btn-secondary mt-3" onClick={()=> handleCart(id)}>Add to Cart</button> :
                     null}
-                </div>
-    </div>
+            </div>
+      </div>
 }
 
 

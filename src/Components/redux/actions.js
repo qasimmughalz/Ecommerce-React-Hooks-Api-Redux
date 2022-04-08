@@ -14,3 +14,10 @@ export const setDataToApi= (data)=>{
         payload : data
     }
 }
+
+
+export const ToggleCompare= ()=>{
+    return {
+        type: 'ToggleCompare',
+    }
+}

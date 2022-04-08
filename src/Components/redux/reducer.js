@@ -8,13 +8,20 @@ const initialStates = {
         allProducts: [],
         price:0,
         mycart:0, 
-        ApiData : []
+        ApiData : [],
+        compare:false
 }
 
 
 export const MyActions = (state=initialStates , action)=>{
 
-    switch(action.type){
+    switch(action.type){    
+
+        case 'ToggleCompare':
+            return {
+                ...state, 
+                compare: !state.compare
+            }
 
         case 'setDataToApi':
             return {

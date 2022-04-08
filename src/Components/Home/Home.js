@@ -11,6 +11,8 @@ import { RealTime } from "../FIlters/Realtime";
 import { ManualFilter } from "../FIlters/Manual";
 import { CheckBox } from "../FIlters/CheckBox";
 import { DataPagination } from "../Pagination/DataPagination";
+import { ChooseCompare } from "../Compare/ChooseCompare";
+import { Link } from "react-router-dom";
 
 
 
@@ -62,12 +64,17 @@ export const Home = () => {
     }
     
 
+   
 
 
 
 
   return (
     <div className="container-fluid mt-5">
+      
+      <Link to='/compare'>
+         <p>Compare Values</p>
+      </Link>
       <Cart></Cart>    
       <div>
       <h3 className="display-4 my-4 text-center"> Shop</h3>

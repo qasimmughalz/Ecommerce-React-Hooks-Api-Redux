@@ -7,7 +7,7 @@ import { Posts } from "./Posts"
 export const DataPagination = ({DataLength, data})=> {
 
 
-        const [toshow, settoShow]= useState(3)
+        const [toshow, settoShow]= useState(4)
         const [currentPage, setCurrentPage]= useState(1)
 
 
@@ -15,11 +15,11 @@ export const DataPagination = ({DataLength, data})=> {
         const lastPost = currentPage * toshow
         const firstPost = lastPost - toshow
         const current = data.slice(firstPost, lastPost)
-
-
+        
         const updatePage = (val)=>{
             setCurrentPage(val)
         }
+
 
 
 

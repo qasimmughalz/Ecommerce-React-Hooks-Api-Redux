@@ -10,7 +10,6 @@ export const ManualFilter = ()=>{
     const [cat, setCat] = useState('')
 
 
-        console.log("MIn, Max", min, max, cat)
 
 
 
