@@ -19,7 +19,7 @@ export const MyActions = (state=initialStates , action)=>{
 
         case 'ToggleCompare':
             return {
-                ...state, 
+                ...state,  
                 compare: !state.compare
             }
 
@@ -31,9 +31,7 @@ export const MyActions = (state=initialStates , action)=>{
             
         case 'AddToCart':  
 
-                console.log("eee",state.ApiData)
                 const filter = state.ApiData.find((e)=> e.id === action.payload)
-                console.log("Check Selected", filter)
             return {
                 ...state, 
                 mycart: state.mycart+1,
