@@ -11,10 +11,8 @@ export const Cart = ()=>{
     const cartData = useSelector(state=> state.MyActions)
 
 
-    return  <div style={{ textAlign: "right" }}>
-
-                 <Link to='/cart'>
+    return <Link to='/cart'style={{paddingTop:'13px'}}>
                  <p> My Cart : {cartData.mycart} </p>
-                </Link>
-            </div>      
+        </Link>
+             
 }

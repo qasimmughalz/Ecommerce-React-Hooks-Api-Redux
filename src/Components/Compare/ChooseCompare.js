@@ -23,11 +23,27 @@ export const ChooseCompare = ()=>{
     },[])
 
 
+    let tableData;
+
+    function handleCompare(){
+            StateData.ApiData.id
+    }
+
    
 
 
     return(
-        <div className="container">    
+            <div className="container">     
+
+            <div className="container my-5">
+                <form>
+                  <button >Compare</button>
+                </form>
+            </div>
+            
+
+
+
            <Posts data={StateData.ApiData}></Posts>
         </div>
     )

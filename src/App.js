@@ -11,7 +11,7 @@ function App() {
   
 
   return (
-    <div className='container-fluid App'>
+    <div className='App'>
 
           <Routes>
             <Route path='/compare' element={<ChooseCompare></ChooseCompare>}></Route>

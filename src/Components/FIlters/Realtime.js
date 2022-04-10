@@ -15,11 +15,10 @@ export const RealTime = ({search, GetFromChild})=>{
 
     return(
         <div className="mt-3">
-        <label>Search</label>
                 <input
                 value={search}
                 onChange={(e)=> handleChange(e.target.value)}
-                placeholder="search"
+                placeholder="Search Your Car here ..."
                 className="form-control "
             >
             </input>
