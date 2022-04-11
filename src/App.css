@@ -12,3 +12,8 @@ a{
 li{
   list-style: none;
 }
+
+.btn-success{
+  background-color: #3eb549;
+  border-color: #37a241;
+}

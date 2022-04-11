@@ -34,7 +34,7 @@ export const Pages = ({totalLength , toShow , getPageNumber})=>{
         <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
                 { 
-                 mynum.map((e, index)=>  <li key={index} className="page-item" onClick={()=> handlePage(e)} ><a class="page-link" href="#">{e}</a></li> )  
+                 mynum.map((e, index)=>  <li key={index} className="page-item" onClick={()=> handlePage(e)} ><a className="page-link" href="#">{e}</a></li> )  
                 }
             </ul>
             </nav>

@@ -11,8 +11,8 @@ export const Cart = ()=>{
     const cartData = useSelector(state=> state.MyActions)
 
 
-    return <Link to='/cart'style={{paddingTop:'13px'}}>
-                 <p> My Cart : {cartData.mycart} </p>
+    return <Link to='/cart'style={{paddingTop:'15px'}}>
+                 <p className="text-white"> My Cart : {cartData.mycart} </p>
         </Link>
              
 }

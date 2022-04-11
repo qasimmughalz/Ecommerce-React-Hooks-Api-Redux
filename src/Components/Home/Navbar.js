@@ -5,27 +5,27 @@ export const Navbar = () => {
 
     return (
       
-        <nav class="navbar navbar-expand-lg navbar-light  bg-transparent text-dark">
-            <div class="container text-center">
-                <a class="navbar-brand" href="#">CarsExpert</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark  bg-transparent text-light fixed-top">
+            <div className="container text-center mt-2">
+                <a className="navbar-brand" href="#"><img style={{width:'150px'}} src="https://wsa1.pakwheels.com/assets/new-pw-logo-white-b8b4c00b25fde9cc8f514dc4947c266a.svg" className="img-fluid"></img> </a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse  navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div className="collapse  navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
                         <Link to='/compare'>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Compare</a>
+                        <li className="nav-item ">
+                            <a className="nav-link active" aria-current="page" href="#">Compare</a>
                         </li>
                         </Link>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Features</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Pricing</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link ">Disabled</a>
+                        <li className="nav-item">
+                            <a className="nav-link ">Disabled</a>
                         </li>
                     </ul>
                 </div>

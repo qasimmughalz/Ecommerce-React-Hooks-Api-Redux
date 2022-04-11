@@ -30,7 +30,6 @@ export const MyActions = (state=initialStates , action)=>{
             }
             
         case 'AddToCart':  
-
                 const filter = state.ApiData.find((e)=> e.id === action.payload)
             return {
                 ...state, 
