@@ -1,5 +1,5 @@
 
-
+import './filter.css'
 
 export const RealTime = ({search, GetFromChild})=>{
 
@@ -11,15 +11,15 @@ export const RealTime = ({search, GetFromChild})=>{
         GetFromChild(val)
     }
 
-
+    
 
     return(
         <div className="mt-3">
                 <input
                 value={search}
                 onChange={(e)=> handleChange(e.target.value)}
-                placeholder="Search Your Car here ..."
-                className="form-control "
+                placeholder="search your car here....."
+                className="form-control grey-inputs"
             >
             </input>
       </div>

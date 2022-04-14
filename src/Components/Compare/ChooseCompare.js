@@ -68,7 +68,7 @@ export const ChooseCompare = () => {
     <div>
       <div className="container-fluid hero-section ">
         <Navbar></Navbar>
-        { data.length > 0 ? 
+       
         <div className="container pt-5">
           <div className="   pt-5 text-white">
             <h3 className="display-4">Car Comparison</h3>
@@ -127,7 +127,7 @@ export const ChooseCompare = () => {
             </form>
           </div>
         </div> 
-         : <p>Loading...</p> }
+      
       </div>  
 
 

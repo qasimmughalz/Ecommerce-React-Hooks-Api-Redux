@@ -1,4 +1,15 @@
+ :root{
+     --purple : #1F2B59
+ }
 
+ .relative{
+     position: relative;
+ }
+
+
+.nav-link{
+    color: #1f2b59 !important;
+}
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
     background-color: transparent;
@@ -12,17 +23,69 @@
 }
 
 .hero-section{
-    height: 60vh;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, #020024 0%, #233d7b 88%);  
-    /* background-image: url('https://cache1.pakwheels.com/system/super_boards/background_images/000/000/008/original/8.jpg?1649133660'); */
+    height: 90vh;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    background: linear-gradient(0deg, #1f2b59 28.13%, rgba(31, 43, 89, 0) 100%);
+    /* background: rgb(2,0,36);
+    background: linear-gradient(180deg, #020024 0%, #233d7b 88%);   */
+    background-image: url('https://carvago.com/images/B2C-homepage/hero.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.gradient-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0%;
+    height: 200px;
+    background: linear-gradient(0deg, #1f2b59 28.13%, rgba(31, 43, 89, 0) 100%);
 }
 
 .hero-section .row{
-    height: 60vh;
+    height: 80vh;
 }
 
 footer{
     background: rgb(2,0,36);
 background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
+}
+
+.hero-btn{
+    background: linear-gradient(111.72deg,#3E47DD 14.24%, #262A98 85.76%);
+    color: #fff;
+    padding: 9px 27px;
+    box-shadow: 0px 16px 24px -20px #3e47dd;
+    
+}
+.hero-btn:hover{
+    color: #fff;
+    background: linear-gradient(111.72deg,#3E47DD 14.24%, #262A98 85.76%);
+    box-shadow: 0px 16px 36px -12px #3e47dd;
+}
+
+.hero-section h1{
+    color: var(--purple);
+}
+
+.hero-three-steps{
+    position: absolute;
+    z-index: 4;
+    top: -15%;
+}
+
+.hero-three-steps .card{
+    background-color: #EDF1F8;
+    border-radius: 8px 0 0 8px;
+    box-shadow: inset -1px 0px 0px #d7e1ef;
+}
+
+.hero-three-steps .col-md-3{
+    padding: 0;
+}
+
+.space-90{
+    height: 100px;
 }
