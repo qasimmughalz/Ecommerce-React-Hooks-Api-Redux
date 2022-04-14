@@ -6,80 +6,89 @@ import { Posts } from "../Pagination/Posts";
 import { ToggleCompare } from "../redux/actions";
 import { MyActions } from "../redux/reducer";
 import "./Compare.css";
+import axios from "axios";
+import { setDataToApi } from "../redux/actions";
+import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 export const ChooseCompare = () => {
+  const [data, setData] = useState([]);
+  const [car1, setCar1] = useState(0);
+  const [car2, setCar2] = useState(0);
+  const [mykeys, setMyKeys] = useState([]);
+  const [filter, setFilter] = useState([]);
+  let cars = [];
 
+  const dispatch = useDispatch();
 
+  // ============== API CALL ============
 
-    const [car1, setCar1]= useState(0)
-    const [car2, setCar2] = useState(0)
-     let cars = []
-     let filter = []
+  useEffect(() => {
+    const fetchdata = async () => {
+      const response = await axios
+        .get("https://fakestoreapi.com/products/")
+        .then((res) => {
+          setData(res.data);
+          dispatch(setDataToApi(res.data));
+        })
+        .catch((e) => console.log(e));
+    };
+    fetchdata();
+  }, []);
 
+  // ============ Logics =============
 
-
-    
-    const StateData = useSelector((state) => state.MyActions);
-    const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(ToggleCompare());
-    //     console.log("Mount Compare", StateData.compare);
-    //     return () => {
-    //     dispatch(ToggleCompare());
-    //     console.log("UnMount Compare", StateData.compare);
-    //     };
-    // }, []);
-
-
-  
-
-    const handleSelectedCar1 = (e)=>{
-        setCar1(e.target.value)
+  useEffect(() => {
+    if (filter.length > 0) {
+      let keys = Object.keys(filter[0]);
+      console.log("dekhle keys", keys)
+      const value = [...keys.splice(5,1)]
+      setMyKeys(keys);
     }
-
-    const handleSelectedCar2 = (e)=>{
-    
-        setCar2(e.target.value)
-    }
+  }, [filter]);
 
 
 
-    const handleSubmit= (e)=>{
-            e.preventDefault()
 
-            cars.push(car1)
-            cars.push(car2)
 
-            console.log("Selected cars : ", cars)
-            const filtered = StateData.ApiData.filter((e)=> cars.some((val)=> val == e.id))
-            console.log("Filtered Items : ", filtered)
-           
-    }
-  
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    cars.push(car1);
+    cars.push(car2);
+    const filtered = data.filter((e) => cars.some((val) => val == e.id));
+    setFilter(filtered);
+  };
+
 
 
   return (
-    <div >
-
-      <Navbar></Navbar>
+    <div>
       <div className="container-fluid hero-section ">
-        <div className="container">
-            <div className="mt-5 pt-5 text-white">
-                <h3 className="display-4">Car Comparison</h3>
-            </div>
-          <div className="mb-5 jumbotron shadow-lg" >
+        <Navbar></Navbar>
+        { data.length > 0 ? 
+        <div className="container pt-5">
+          <div className="   pt-5 text-white">
+            <h3 className="display-4">Car Comparison</h3>
+          </div>
+          <div className="mb-5 jumbotron shadow-lg">
             <form onSubmit={handleSubmit}>
-              <div className="row" style={{height:'auto'}}>
+              <div className="row" style={{ height: "auto" }}>
                 <div className="col">
                   <label className="my-2">Select Car 1:</label>
-                  <select className="form-control" value={car1}  onChange={handleSelectedCar1}>
+                  <select
+                    className="form-control"
+                    value={car1}
+                    onChange={(e) => setCar1(e.target.value)}
+                  >
                     <option value="" disabled selected>
                       car name
                     </option>
-                    {StateData.ApiData.map((e) => {
+                    {data.map((e) => {
                       return (
-                        <option key={e.id} value={e.id}  placeholder="enter">
+                        <option key={e.id} value={e.id} placeholder="enter">
                           {e.title}
                         </option>
                       );
@@ -88,11 +97,15 @@ export const ChooseCompare = () => {
                 </div>
                 <div className="col">
                   <label className="my-2">Select Car 2:</label>
-                  <select className="form-control" value={car2} onChange={handleSelectedCar2}>
+                  <select
+                    className="form-control"
+                    value={car2}
+                    onChange={(e) => setCar2(e.target.value)}
+                  >
                     <option value="" disabled selected>
                       car name
                     </option>
-                    {StateData.ApiData.map((e) => {
+                    {data.map((e) => {
                       return (
                         <option key={e.id} value={e.id} placeholder="enter">
                           {e.title}
@@ -107,36 +120,72 @@ export const ChooseCompare = () => {
                 className="col text-right my-4"
                 style={{ textAlign: "right" }}
               >
-                <button className="btn btn-success" type='submit'>Compare</button>
+                <button className="btn btn-success" type="submit">
+                  Compare
+                </button>
               </div>
             </form>
           </div>
-        </div>
+        </div> 
+         : <p>Loading...</p> }
+      </div>  
+
+
+      
+
+      <div className="container mt-5 p-5">
+        <div className="row">
+           {filter.map((e)=>{
+             return <div className="col-md-6 text-center">
+                        <img className='img-fluid'style={{height:'300px'}} src={e.image}></img>
+                    </div>
+           })}
+           </div>
       </div>
 
-      <div className="container mt-5">
-            <div className="table-responsive">
-                <table className="">
-                    <thead>
-                        <th></th>
-                    </thead>
-                    <tbody>
-                            { filter.length > 0 ?
-                              <tr> 
-                                             <td>{cars[0].id}</td>
-                                             <td>{cars[0].title}</td>
-                                             <td>{cars[0].category}</td>
-                                             <td>{cars[0].description}</td>
-                                             <td>{cars[0].price}</td>
-                                             <td>{cars[0].rating.count}</td>
-                                             <td>{cars[0].rating.rate}</td>
-                                </tr> : <p>No data bro</p>
-                            }
-                      
-                    </tbody>
-                </table>
+     
 
-            </div>
+      <div className="container pt-5 mb-5 bg-white">
+        <div className="table-responsive">
+          <table className="table table-hover">
+            <thead>
+              <tr>  
+              <th scope='col' style={{width:"10%"}}> Name  </th> 
+                {filter.map((val) => {
+                  return <th scope="col" style={{width:"45%"}}>{val.title}</th>;
+                })}
+              </tr>
+            </thead>
+
+
+            {filter.length > 0 ? (
+              <tbody>
+                {
+                    mykeys.map((val) => {
+                      return (
+                          <tr>
+                             <th scope="row">{val.toUpperCase()}</th>
+                            {filter.map((el)=> {
+                              if( typeof el[val] === 'object' ){
+                                return  <td>{el[val].rate}</td>
+                              }else if(val === 'image' ){
+                               return 
+                              }else{
+                                return <td>{el[val]}</td>
+                              }
+                            })}  
+                        </tr>
+                      );
+                    })
+            
+            }
+            
+              </tbody>
+            ) : (
+              <td>Please Select Cars to compare</td>
+            )}
+          </table>
+        </div>
       </div>
     </div>
   );

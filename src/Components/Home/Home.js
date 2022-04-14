@@ -15,6 +15,7 @@ import { ChooseCompare } from "../Compare/ChooseCompare";
 import { Link } from "react-router-dom";
 import css from './Home.css'
 import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
 
 
 
@@ -230,9 +231,11 @@ export const Home = () => {
 
           </div>
         </div>
-        </div>
+      </div>
 
-   
+          
+
+          <Footer></Footer>
     </div>
   );
 };

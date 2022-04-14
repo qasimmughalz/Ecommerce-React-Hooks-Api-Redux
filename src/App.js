@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className='App'>
-
+        
           <Routes>
             <Route path='/compare' element={<ChooseCompare></ChooseCompare>}></Route>
             <Route path='/' element={<Home/>}> </Route>

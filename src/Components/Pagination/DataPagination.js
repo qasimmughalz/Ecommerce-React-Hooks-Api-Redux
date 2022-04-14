@@ -11,7 +11,7 @@ export const DataPagination = ({DataLength, data})=> {
         const [currentPage, setCurrentPage]= useState(1)
 
 
-
+        
         const lastPost = currentPage * toshow
         const firstPost = lastPost - toshow
         const current = data.slice(firstPost, lastPost)

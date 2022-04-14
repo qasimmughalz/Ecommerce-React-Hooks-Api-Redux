@@ -14,10 +14,15 @@
 .hero-section{
     height: 60vh;
     background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 88%);  
+    background: linear-gradient(180deg, #020024 0%, #233d7b 88%);  
     /* background-image: url('https://cache1.pakwheels.com/system/super_boards/background_images/000/000/008/original/8.jpg?1649133660'); */
 }
 
 .hero-section .row{
     height: 60vh;
+}
+
+footer{
+    background: rgb(2,0,36);
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
 }

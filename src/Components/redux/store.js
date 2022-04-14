@@ -7,15 +7,8 @@ import { applyMiddleware } from 'redux'
 
 
 const loggermiddleware = (state)=> (next)=> (action)=> {
-    console.log(action)
-    console.log("before", action.payload)
-    console.log("after", action.payload)
     next(action)
 }
-
-
-
-
 
 
 

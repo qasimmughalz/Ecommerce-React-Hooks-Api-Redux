@@ -7,7 +7,7 @@ export const Navbar = () => {
       
         <nav className="navbar navbar-expand-lg navbar-dark  bg-transparent text-light fixed-top">
             <div className="container text-center mt-2">
-                <a className="navbar-brand" href="#"><img style={{width:'150px'}} src="https://wsa1.pakwheels.com/assets/new-pw-logo-white-b8b4c00b25fde9cc8f514dc4947c266a.svg" className="img-fluid"></img> </a>
+                <a className="navbar-brand" href="/"><img style={{width:'150px'}} src="https://wsa1.pakwheels.com/assets/new-pw-logo-white-b8b4c00b25fde9cc8f514dc4947c266a.svg" className="img-fluid"></img> </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
