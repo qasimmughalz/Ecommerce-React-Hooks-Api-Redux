@@ -6,6 +6,7 @@ import { Home } from './Components/Home/Home';
 import { Details } from './Components/Card/Detail';
 import { CartDetails } from './Components/Cart/CartDetails';
 import { ChooseCompare } from './Components/Compare/ChooseCompare';
+import {SearchPage} from './Components/Search/SearchPage';
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
             <Route path='/' element={<Home/>}> </Route>
             <Route path='/products/:id' element={<Details/>} ></Route>
             <Route path='/cart' element={<CartDetails/>} ></Route>
+            <Route path='/search/:search' element={<SearchPage></SearchPage>}></Route>
           </Routes>
 
         

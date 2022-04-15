@@ -67,9 +67,7 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
     box-shadow: 0px 16px 36px -12px #3e47dd;
 }
 
-.hero-section h1{
-    color: var(--purple);
-}
+
 
 .hero-three-steps{
     position: absolute;
@@ -90,6 +88,11 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
     border-radius: 0px 8px 8px  0px;
 }
 
+.hero-three-steps p{
+    color: var(--purple);
+    letter-spacing: 1px;
+    font-size: 14px;
+}
 
 .hero-three-steps .col-md-3{
     padding: 0;
@@ -108,4 +111,12 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
     min-height: 38px;
     color: #1F2B59;
     cursor: pointer;
+}
+
+.category-cards{
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+.category-cards:hover{
+    box-shadow: 0px 0px 12px rgb(0 0 0 / 30%);
 }

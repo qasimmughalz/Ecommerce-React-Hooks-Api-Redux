@@ -28,6 +28,13 @@ export const Home = () => {
   const dispatch = useDispatch();
   const StoreData = useSelector(state => state.MyActions)
   const [loading, setLoading] = useState(true)
+  const [mainSearch, setMainSearch] = useState('')
+
+
+
+
+
+
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -78,6 +85,16 @@ export const Home = () => {
   }
 
 
+  const handleSearchSubmit = (e)=>{
+      e.preventDefault()
+      
+  }
+
+
+
+
+
+
 
 
 
@@ -98,14 +115,19 @@ export const Home = () => {
               <div className="card border-0 p-5">
                  <h1 className="display-4 fw-bold ">Get Your Dream Car</h1>
                   <p className="text-left">You choose your car. We inspect it and deliver it</p> 
+                  <form onSubmit={handleSearchSubmit}>
                   <input
                       placeholder="search your car here....."
                       className="form-control grey-inputs"
+                      onChange={(e)=> setMainSearch(e.target.value)}
                   >
                   </input>
                   <div className="text-right" style={{textAlign:'right'}}>
-                      <button className="btn hero-btn mt-4">Search</button>
+                        <Link to={`/search/${mainSearch}`}>
+                       <button className="btn hero-btn mt-4" value='submit' type="submit">Search</button>
+                       </Link>
                   </div>
+                  </form>
                  
               </div>
             </div>
@@ -117,36 +139,31 @@ export const Home = () => {
      
       <div className="container relative">
 
-      <div className="container hero-three-steps">
+             <div className="container hero-three-steps">
                 <div className="row justify-content-center">
                     <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>Money Back Guantee</h4>
-                            <p className="mt-2 mb-2">And if you simply don’t like the car, you can return it to us within 14 days of receiving it.</p>
+                            <p className=" mb-1">And if you simply don’t like the car, you can return it to us within 14 days of receiving it.</p>
                         </div>
                     </div>
                     <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>Safe purchase</h4>
-                            <p className="mt-2 mb-2">We carefully inspect each car and guarantee it is in good condition before the purchase.</p>
+                            <p className=" mb-1">We carefully inspect each car and guarantee it is in good condition before the purchase.</p>
                         </div>
                     </div>
                     <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>6-month warranty</h4>
-                            <p className="mt-2 mb-2">In addition, with every car you receive an extended warranty for any issue claim to us.</p>
+                            <p className=" mb-1">In addition, with every car you receive an extended warranty for any issue claim to us.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="space-90"></div>
-
             <div className="container">
-        
-
-            </div>
-
         <div className="row">
 
 
@@ -283,17 +300,38 @@ export const Home = () => {
                 <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">School</div>
                 <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Garden</div>
               </div>
-            </div>
-
-
-            <DataPagination DataLength={display.length} loading={loading} data={display} />
-
+            </div>  
 
           </div>
         </div>
-      </div>
+           </div>
 
-          
+      </div>
+     
+
+
+         
+
+            
+
+            <div className="container-fluid py-5">
+              <div className="row justify-content-center p-5 " >
+                <div className="col-md-4 m-auto text-left">
+                      <h2>A thorough car inspection - CarAudit™️</h2>
+                      <p className="my-3">A qualified mechanic will thoroughly inspect your chosen car. You will receive a detailed report about the technical condition of the car, photo documentation, and our advice. You just take your time and decide.</p>
+                      <button className="btn hero-btn">More About Inspection</button>
+                </div>
+                <div className="col-md-6  ">
+                  <img src="http://americanchampioninc.com/image/133040908.png" className="img-fluid"></img>
+                </div>
+                </div>
+            </div>
+
+
+            <div className="container p-md-5 p-3">
+              <DataPagination DataLength={display.length} loading={loading} data={display} />
+            </div>
+
 
           <Footer></Footer>
     </div>

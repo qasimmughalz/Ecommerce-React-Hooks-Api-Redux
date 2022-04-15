@@ -86,7 +86,7 @@ export const Footer = ()=>{
          className="text-center p-3">
       © 2020 Copyright:
       <p className="text-white" href="https://mdbootstrap.com/"
-         >MDBootstrap.com</p
+         >Qasim Mughal</p
         >
     </div>
   </footer>

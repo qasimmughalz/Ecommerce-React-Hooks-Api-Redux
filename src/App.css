@@ -1,4 +1,11 @@
 
+ :root{
+  --purple : #1F2B59
+}
+
+h1,h2,h3,h4,h5,h6, .purple{
+  color: var(--purple);
+}
 
 body{
   background-color: #fff;
@@ -31,3 +38,4 @@ li{
   background: linear-gradient(111.72deg,#3E47DD 14.24%, #262A98 85.76%);
   box-shadow: 0px 16px 36px -12px #3e47dd;
 }
+
