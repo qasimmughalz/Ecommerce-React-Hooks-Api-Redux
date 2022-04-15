@@ -1,15 +1,11 @@
 import { Cards } from "../Card/Cards";
 
-export const Posts = ({data})=>{
+export const Posts = ({data, loading})=>{
     
+    let mydata = [1,2,3,4]
     
-    
-    return(
-    
-                <div>
-                     {data.length >= 1 ? (
-                            <div className="row">
-                                {data.map((val) => {
+    return( <div className="row">
+                                { data.length > 0 ? data.map((val) => {
                                 return (
                                     <Cards
                                     key={val.id}
@@ -21,12 +17,16 @@ export const Posts = ({data})=>{
                                     des={val.description}
                                     rating={val.rating.rate}
                                     ratingCount={val.rating.count}
+                                    loading={loading}
                                     ></Cards>
-                                );
-                                })}
-                            </div>
-                            ) : (
-                            <p className="text-center">loading ...</p>
-                            )}
-              </div>)
+                                )  
+                                }) : mydata.map((val) => {
+                                    return (
+                                        <Cards loading={loading}></Cards>
+                                    )  
+                                    }) }    
+                            
+                                
+        </div>
+        )
 }

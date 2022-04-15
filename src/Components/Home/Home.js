@@ -19,6 +19,7 @@ import { Footer } from "./Footer";
 
 
 
+
 export const Home = () => {
   const [display, setDisplay] = useState([]);
   const [data, setData] = useState([]);
@@ -26,6 +27,7 @@ export const Home = () => {
 
   const dispatch = useDispatch();
   const StoreData = useSelector(state => state.MyActions)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -40,6 +42,16 @@ export const Home = () => {
     };
     fetchdata();
   }, []);
+
+
+  useEffect(()=>{
+    console.log("DISPLAY VALUE BEFORE ", display)
+    if(display.length > 0){
+      console.log('loading data appi se ', loading)
+      setLoading(!loading)
+    }
+
+},[display])
 
   useEffect(() => {
     if (search == "") {
@@ -86,7 +98,11 @@ export const Home = () => {
               <div className="card border-0 p-5">
                  <h1 className="display-4 fw-bold ">Get Your Dream Car</h1>
                   <p className="text-left">You choose your car. We inspect it and deliver it</p> 
-                   <RealTime  value={search} GetFromChild={handleGetFromChild}></RealTime>
+                  <input
+                      placeholder="search your car here....."
+                      className="form-control grey-inputs"
+                  >
+                  </input>
                   <div className="text-right" style={{textAlign:'right'}}>
                       <button className="btn hero-btn mt-4">Search</button>
                   </div>
@@ -103,19 +119,19 @@ export const Home = () => {
 
       <div className="container hero-three-steps">
                 <div className="row justify-content-center">
-                    <div className="col-md-3 my-3">
+                    <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>Money Back Guantee</h4>
                             <p className="mt-2 mb-2">And if you simply don’t like the car, you can return it to us within 14 days of receiving it.</p>
                         </div>
                     </div>
-                    <div className="col-md-3 my-3">
+                    <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>Safe purchase</h4>
                             <p className="mt-2 mb-2">We carefully inspect each car and guarantee it is in good condition before the purchase.</p>
                         </div>
                     </div>
-                    <div className="col-md-3 my-3">
+                    <div className="col-md-3 ">
                         <div className="card p-4">
                             <h4>6-month warranty</h4>
                             <p className="mt-2 mb-2">In addition, with every car you receive an extended warranty for any issue claim to us.</p>
@@ -126,7 +142,14 @@ export const Home = () => {
 
             <div className="space-90"></div>
 
+            <div className="container">
+        
+
+            </div>
+
         <div className="row">
+
+
           {/* <div className="col-md-2 shadow-lg border ">
 
             <h3 className="mt-3">Filters</h3>
@@ -138,6 +161,7 @@ export const Home = () => {
           </div> */}
 
           <div className="col-md-9 m-auto">
+
 
             <div className="my-5">
               <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -262,7 +286,7 @@ export const Home = () => {
             </div>
 
 
-            <DataPagination DataLength={display.length} data={display} />
+            <DataPagination DataLength={display.length} loading={loading} data={display} />
 
 
           </div>

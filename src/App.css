@@ -1,7 +1,7 @@
 
 
 body{
-  background-color: #eee;
+  background-color: #fff;
 }
 
 a{
@@ -16,4 +16,18 @@ li{
 .btn-success{
   background-color: #3eb549;
   border-color: #37a241;
+}
+
+
+.hero-btn{
+  background: linear-gradient(111.72deg,#3E47DD 14.24%, #262A98 85.76%);
+  color: #fff;
+  padding: 9px 27px;
+  box-shadow: 0px 16px 24px -20px #3e47dd;
+  
+}
+.hero-btn:hover{
+  color: #fff;
+  background: linear-gradient(111.72deg,#3E47DD 14.24%, #262A98 85.76%);
+  box-shadow: 0px 16px 36px -12px #3e47dd;
 }

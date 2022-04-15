@@ -7,6 +7,7 @@
  }
 
 
+
 .nav-link{
     color: #1f2b59 !important;
 }
@@ -82,10 +83,29 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(35,61,123,1) 100%);
     box-shadow: inset -1px 0px 0px #d7e1ef;
 }
 
+.hero-three-steps .col-md-3:nth-child(2) .card{
+    border-radius: 0px;
+}
+.hero-three-steps .col-md-3:nth-child(3) .card{
+    border-radius: 0px 8px 8px  0px;
+}
+
+
 .hero-three-steps .col-md-3{
     padding: 0;
 }
 
 .space-90{
     height: 100px;
+}
+
+.grey-inputs{
+    border: 1px solid #8E9FC3;
+    border-radius: 0.4rem;
+    box-shadow: none;
+    letter-spacing: 0.2px;
+    font-size: 1.4rem;
+    min-height: 38px;
+    color: #1F2B59;
+    cursor: pointer;
 }

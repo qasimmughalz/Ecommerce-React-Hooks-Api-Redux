@@ -60,7 +60,7 @@ export const Footer = ()=>{
         </div>
       </section>
 
-      <section className="text-center mb-5">
+      <section className="text-center mb-5 d-flex justify-content-center">
         <p href="" className="text-white me-4">
           <i className="fab fa-facebook-f"></i>
         </p>
