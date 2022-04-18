@@ -128,7 +128,6 @@ export const Home = () => {
                        </Link>
                   </div>
                   </form>
-                 
               </div>
             </div>
           </div>
@@ -328,9 +327,9 @@ export const Home = () => {
             </div>
 
 
-            <div className="container p-md-5 p-3">
+            {/* <div className="container p-md-5 p-3">
               <DataPagination DataLength={display.length} loading={loading} data={display} />
-            </div>
+            </div> */}
 
 
           <Footer></Footer>

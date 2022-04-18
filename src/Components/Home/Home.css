@@ -24,7 +24,7 @@
 }
 
 .hero-section{
-    height: 90vh;
+    height: 100vh;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
     background: linear-gradient(0deg, #1f2b59 28.13%, rgba(31, 43, 89, 0) 100%);
@@ -46,7 +46,7 @@
 }
 
 .hero-section .row{
-    height: 80vh;
+    height: 100vh;
 }
 
 footer{

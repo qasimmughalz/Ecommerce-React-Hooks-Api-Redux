@@ -70,10 +70,11 @@ export const ChooseCompare = () => {
         <Navbar></Navbar>
        
         <div className="container pt-5">
-          <div className="   pt-5 text-white">
+          
+          <div className="my-5 jumbotron shadow-lg">
+          <div className="   text-white">
             <h3 className="display-4">Car Comparison</h3>
           </div>
-          <div className="mb-5 jumbotron shadow-lg">
             <form onSubmit={handleSubmit}>
               <div className="row" style={{ height: "auto" }}>
                 <div className="col">
