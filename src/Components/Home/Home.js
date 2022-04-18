@@ -12,11 +12,10 @@ import { ManualFilter } from "../FIlters/Manual";
 import { CheckBox } from "../FIlters/CheckBox";
 import { DataPagination } from "../Pagination/DataPagination";
 import { ChooseCompare } from "../Compare/ChooseCompare";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import css from './Home.css'
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-
 
 
 
@@ -29,6 +28,8 @@ export const Home = () => {
   const StoreData = useSelector(state => state.MyActions)
   const [loading, setLoading] = useState(true)
   const [mainSearch, setMainSearch] = useState('')
+
+  const [empty, setEmpty] = useState(false)
 
 
 
@@ -65,7 +66,7 @@ export const Home = () => {
       setDisplay(data);
     } else {
       const filtered = data.filter((val) => {
-        return val.title.toLowerCase().includes(search.toLocaleLowerCase());
+        return val.title.toLowerCase().includes(search.toLowerCase());
       });
       setDisplay(filtered);
     }
@@ -84,18 +85,18 @@ export const Home = () => {
     }
   }
 
+      const navigate = useNavigate();
+
 
   const handleSearchSubmit = (e)=>{
       e.preventDefault()
-      
+      if(mainSearch == ''){
+        setEmpty(true)
+      }else{
+        setEmpty(false)
+        navigate(`/search/${mainSearch}`)
+      }
   }
-
-
-
-
-
-
-
 
 
 
@@ -111,10 +112,10 @@ export const Home = () => {
           <div className="gradient-bottom"></div>
           <div className="container">
           <div className="row align-items-center ">
-            <div className="col-md-6 bg-white  rounded">
+            <div className="col-md-6  rounded">
               <div className="card border-0 p-5">
                  <h1 className="display-4 fw-bold ">Get Your Dream Car</h1>
-                  <p className="text-left">You choose your car. We inspect it and deliver it</p> 
+                  {empty ? <p className="text-danger">Please type something ...</p> : <p>You choose your car. We inspect it and deliver it </p> }
                   <form onSubmit={handleSearchSubmit}>
                   <input
                       placeholder="search your car here....."
@@ -123,9 +124,7 @@ export const Home = () => {
                   >
                   </input>
                   <div className="text-right" style={{textAlign:'right'}}>
-                        <Link to={`/search/${mainSearch}`}>
-                       <button className="btn hero-btn mt-4" value='submit' type="submit">Search</button>
-                       </Link>
+                           <button className="btn hero-btn mt-4" value='submit' type="submit">Search</button>
                   </div>
                   </form>
               </div>

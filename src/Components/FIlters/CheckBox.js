@@ -6,10 +6,10 @@ export const CheckBox = ({setFilteredData})=>{
 
 
     const category = [
-        {id:1, name:"men's clothing"},
-        {id:2, name:"women's clothing"},
-        {id:3, name:'jewelery'},
-        {id:4, name:'electronics'},
+        {id:1, name:"Men's clothing"},
+        {id:2, name:"Women's clothing"},
+        {id:3, name:'Jewelery'},
+        {id:4, name:'Electronics'},
     ]   
 
 
@@ -66,7 +66,7 @@ export const CheckBox = ({setFilteredData})=>{
             checked={myList.filter((data)=> data?.isChecked !== true).length < 1}
             onChange={handleChange}/>
             
-            <label>Select All</label>
+            <label className="ps-1"> SELECT ALL</label>
           
 
             {myList.map((data, index)=> {
@@ -75,7 +75,7 @@ export const CheckBox = ({setFilteredData})=>{
                         name={data.name}
                         checked={data?.isChecked || false}
                         onChange={handleChange}
-                        />{data.name}
+                        />  {data.name.toUpperCase()}
                      </li> 
             })}
 

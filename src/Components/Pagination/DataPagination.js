@@ -7,7 +7,7 @@ import { Posts } from "./Posts"
 export const DataPagination = ({DataLength, data, loading})=> {
 
 
-        const [toshow, settoShow]= useState(4)
+        const [toshow, settoShow]= useState(10)
         const [currentPage, setCurrentPage]= useState(1)
         
         

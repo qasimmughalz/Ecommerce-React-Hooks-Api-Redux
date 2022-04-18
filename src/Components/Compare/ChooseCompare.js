@@ -9,6 +9,12 @@ import "./Compare.css";
 import axios from "axios";
 import { setDataToApi } from "../redux/actions";
 import { setSelectionRange } from "@testing-library/user-event/dist/utils";
+import { HeroSection } from "../Home/HeroSection";
+import { Footer } from "../Home/Footer";
+
+
+
+
 
 export const ChooseCompare = () => {
   const [data, setData] = useState([]);
@@ -66,19 +72,29 @@ export const ChooseCompare = () => {
 
   return (
     <div>
-      <div className="container-fluid hero-section ">
-        <Navbar></Navbar>
-       
-        <div className="container pt-5">
+         <Navbar></Navbar>
+        
+        <HeroSection>
+        <div className="container mt-5">
+                     <div className="row align-items-center pt-5 justify-content-center">
+                        <div className="col-md-9   rounded mt-5">
+                        <div className="card bg-transparent border-0 p-5">
+                            <h1 className="display-4 text-white fw-bold ">Compare X vs Y</h1>
+                            <p className="text-left text-white">Compare two of your dream cars and choose on right away !</p> 
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+        
+      </HeroSection>
+      <div className="container pt-5">
           
           <div className="my-5 jumbotron shadow-lg">
-          <div className="   text-white">
-            <h3 className="display-4">Car Comparison</h3>
-          </div>
+          
             <form onSubmit={handleSubmit}>
               <div className="row" style={{ height: "auto" }}>
                 <div className="col">
-                  <label className="my-2">Select Car 1:</label>
+                  <label className="my-2 fw-bold">Select Car 1:</label>
                   <select
                     className="form-control"
                     value={car1}
@@ -97,7 +113,7 @@ export const ChooseCompare = () => {
                   </select>
                 </div>
                 <div className="col">
-                  <label className="my-2">Select Car 2:</label>
+                  <label className="my-2 fw-bold">Select Car 2:</label>
                   <select
                     className="form-control"
                     value={car2}
@@ -128,8 +144,7 @@ export const ChooseCompare = () => {
             </form>
           </div>
         </div> 
-      
-      </div>  
+    
 
 
       
@@ -188,6 +203,8 @@ export const ChooseCompare = () => {
           </table>
         </div>
       </div>
+            
+      <Footer></Footer>
     </div>
   );
 };
