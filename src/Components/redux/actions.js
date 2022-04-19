@@ -21,3 +21,17 @@ export const ToggleCompare= ()=>{
         type: 'ToggleCompare',
     }
 }
+
+export const ProductQuntityAddition= (id)=>{
+    return {
+        type: 'ProductQuntityAddition',
+        payload:id
+    }
+}
+
+export const ProductQuntityReduction= (id)=>{
+    return {
+        type: 'ProductQuntityReduction',
+        payload:id
+    }
+}
