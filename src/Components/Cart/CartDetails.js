@@ -36,13 +36,18 @@ export const CartDetails = () => {
 
   const handleAddition = (e)=>{
 
-    
+
       dispatch(ProductQuntityAddition(e))
       
       totalPrice = storeData.allProducts
         .map((e) => e.price)
         .reduce((prev, next) => prev + next);
     
+  }
+
+
+  const handleShow= id => {
+      setShow()
   }
 
 
@@ -87,9 +92,9 @@ export const CartDetails = () => {
                   </div>
                 </li>
                 <hr></hr>
-                {storeData.allProducts.map((val) => {
+                {storeData.allProducts.map((val, idx) => {
                   return (
-                    <li className="row my-3 border-bottom pb-2 cart-items " onMouseEnter={()=> setShow(true)} onMouseLeave={()=> setShow(false)}>
+                    <li className="row my-3 border-bottom pb-2 cart-items " key={idx} onMouseEnter={()=> handleShow(idx)} onMouseLeave={()=> setShow(false)}>
                       
                      {show ? <button className="btn btn-danger">X</button> : null }
                       
