@@ -18,14 +18,16 @@ export const Navbar = () => {
                             <a className="nav-link active" aria-current="page" href="#">Compare</a>
                         </li>
                         </Link>
+                        <Link to='/search'>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Features</a>
+                            <a className="nav-link" href="#">See All Listings</a>
                         </li>
+                        </Link>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Pricing</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link ">Disabled</a>
+                            <a className="nav-link ">Contact</a>
                         </li>
                     </ul>
                 </div>

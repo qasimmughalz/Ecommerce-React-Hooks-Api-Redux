@@ -47,12 +47,19 @@ export const SearchPage = ()=>{
   
   
     useEffect(()=>{
-    
-            const filter = data.filter((val)=>{
-            return val.title.toLowerCase().includes(search.toLowerCase())
-        })
-        setFiltered(filter)
-        setInputVal(search)
+ 
+      if(search=== undefined){
+        setFiltered(data)
+        console.log("search value if ", search)
+      }else{
+        console.log("search value else ", search)
+        const filter = data.filter((val)=>{
+          return val.title.toLowerCase().includes(search.toLowerCase())
+      })
+      setFiltered(filter)
+      setInputVal(search)
+      }
+           
       
   },[search])
 
@@ -67,9 +74,9 @@ export const SearchPage = ()=>{
 
 function filteredData(val) {
     if (val.length > 0) {
-      setData(val)
+      setFiltered(val)
     } else {
-      setData(data)
+      setFiltered(data)
     }
   }
 
@@ -80,6 +87,14 @@ function filteredData(val) {
   }
 
 
+  const handleMinMax = (min,max)=>{
+    console.log(min,max)
+    const filter = data.filter((data)=>  data.price >= min && data.price <= max)
+    
+    setFiltered(filter)
+
+
+  }
 
 
     return(
@@ -104,9 +119,9 @@ function filteredData(val) {
                     <div className="row my-5">
 
                     <div className="col-md-3 my-3">
-                    <ManualFilter></ManualFilter><hr />
+                    <ManualFilter setMinMax={handleMinMax} ></ManualFilter><hr />
           
-           
+                    <h3>Categories:</h3>
                     <CheckBox setFilteredData={filteredData}></CheckBox>
                     </div>
                     <div className="col-md-9 my-3">

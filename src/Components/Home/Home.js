@@ -100,14 +100,11 @@ export const Home = () => {
 
 
 
-
   return (
     <div>
 
       <Navbar/>
-
-      
-      
+ 
       <div className="container-fluid hero-section ">
           <div className="gradient-bottom"></div>
           <div className="container">

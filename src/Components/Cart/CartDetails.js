@@ -11,10 +11,7 @@ import './cart.css'
 
 
 
-
-
 export const CartDetails = () => {
-
 
 
 
