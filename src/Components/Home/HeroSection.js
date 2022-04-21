@@ -7,13 +7,10 @@ export const HeroSection = ({children})=>{
 
 
     return(<div className='secondary-hero'>
-           <div className='gradient-bottom'></div>
+           <div className='gradient-bottom-others'></div>
             
              {children}
 
          </div>)
-
-
-
-
+    
 }

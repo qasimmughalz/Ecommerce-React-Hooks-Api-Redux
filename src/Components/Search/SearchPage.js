@@ -29,6 +29,8 @@ export const SearchPage = ()=>{
 
     const [inputVal, setInputVal] = useState(search)
 
+
+    const dispatch = useDispatch()
   
   
   
@@ -38,6 +40,7 @@ export const SearchPage = ()=>{
           .get("https://fakestoreapi.com/products/")
           .then((res) => {
             setData(res.data);
+            dispatch(setDataToApi(res.data));
             setSearch(params.search)
           })
           .catch((e) => console.log(e));
@@ -90,10 +93,7 @@ function filteredData(val) {
   const handleMinMax = (min,max)=>{
     console.log(min,max)
     const filter = data.filter((data)=>  data.price >= min && data.price <= max)
-    
     setFiltered(filter)
-
-
   }
 
 

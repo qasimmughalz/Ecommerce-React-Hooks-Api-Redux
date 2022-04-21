@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Cart } from "../Cart/Cart"
+import { Login } from "../LoginSignUp/login"
 
 export const Navbar = () => {
 
@@ -31,9 +32,11 @@ export const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+                <Link to='/login'>
                  <li className="nav-item">
                             <a className="nav-link ">Login</a>
                  </li>
+                 </Link>
                 <Cart/>
             </div>
         </nav>

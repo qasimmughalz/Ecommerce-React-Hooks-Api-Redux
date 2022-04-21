@@ -28,6 +28,8 @@ export const MyActions = (state = initialStates, action) => {
         };
 
     case "AddToCart":
+      console.log("payload", action.payload)
+      console.log("payload", state.ApiData)
       const filter = state.ApiData.find((e) => e.id === action.payload);
       filter.qty = 1;
       return {
