@@ -11,7 +11,7 @@ export const Details = () => {
     .get(`https://fakestoreapi.com/products/${id}`)
     .then((e) => setData(e.data));
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <div className="container mt-5">

@@ -425,7 +425,7 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="container my-5">
+      {/* <div className="container my-5">
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={125}
@@ -444,7 +444,7 @@ export const Home = () => {
           <ButtonBack>Back</ButtonBack>
           <ButtonNext>Next</ButtonNext>
         </CarouselProvider>
-      </div>
+      </div> */}
 
       {/* <div className="container p-md-5 p-3">
               <DataPagination DataLength={display.length} loading={loading} data={display} />

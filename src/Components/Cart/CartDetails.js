@@ -7,48 +7,29 @@ import { Navbar } from "../Home/Navbar";
 import { ProductQuntityAddition } from "../redux/actions";
 import { MyActions } from "../redux/reducer";
 import { store } from "../redux/store";
-import './cart.css'
-
-
+import "./cart.css";
 
 export const CartDetails = () => {
-
-
-
   let totalPrice;
-
   const storeData = useSelector((state) => state.MyActions);
-
-  const [show, setShow] = useState(false)
-
-
+  const [show, setShow] = useState(false);
   if (storeData.allProducts.length > 1) {
-      totalPrice = storeData.allProducts
-        .map((e) => e.price)
-        .reduce((prev, next) => prev + next);
-    }
-
-  const dispatch = useDispatch()
-
-
-  const handleAddition = (e)=>{
-
-
-      dispatch(ProductQuntityAddition(e))
-      
-      totalPrice = storeData.allProducts
-        .map((e) => e.price)
-        .reduce((prev, next) => prev + next);
-    
+    totalPrice = storeData.allProducts
+      .map((e) => e.price)
+      .reduce((prev, next) => prev + next);
   }
 
+  const dispatch = useDispatch();
+  const handleAddition = (e) => {
+    dispatch(ProductQuntityAddition(e));
 
-  const handleShow= id => {
-      setShow()
-  }
-
-
-
+    totalPrice = storeData.allProducts
+      .map((e) => e.price)
+      .reduce((prev, next) => prev + next);
+  };
+  const handleShow = (id) => {
+    setShow();
+  };
 
   return (
     <div>
@@ -91,10 +72,16 @@ export const CartDetails = () => {
                 <hr></hr>
                 {storeData.allProducts.map((val, idx) => {
                   return (
-                    <li className="row my-3 border-bottom pb-2 cart-items " key={idx} onMouseEnter={()=> handleShow(idx)} onMouseLeave={()=> setShow(false)}>
-                      
-                     {show ? <button className="btn btn-danger">X</button> : null }
-                      
+                    <li
+                      className="row my-3 border-bottom pb-2 cart-items "
+                      key={idx}
+                      onMouseEnter={() => handleShow(idx)}
+                      onMouseLeave={() => setShow(false)}
+                    >
+                      {show ? (
+                        <button className="btn btn-danger">X</button>
+                      ) : null}
+
                       {/* ============== */}
                       <div className="col-8 row align-items-center">
                         <div
@@ -111,24 +98,29 @@ export const CartDetails = () => {
                         className="col-4 text-right"
                         style={{ textAlign: "right" }}
                       >
-                        <h5 className="me-2 fw-bold"> <span className="text-success"> $ </span>{val.price*val.qty}</h5>
-                        <div
-                        className="quantity"
-                      
-                      >
-                        <button type="button" class="btn btn-secondary">
-                          - </button>
-                        <p className="mx-2 text-center pt-3"> {val.qty} </p> 
-                        <button type="button" class="btn btn-secondary" onClick={()=> handleAddition(val.id)} >
-                          +
-                        </button>
-                      </div>
+                        <h5 className="me-2 fw-bold">
+                          {" "}
+                          <span className="text-success"> $ </span>
+                          {val.price * val.qty}
+                        </h5>
+                        <div className="quantity">
+                          <button type="button" class="btn btn-secondary">
+                            -{" "}
+                          </button>
+                          <p className="mx-2 text-center pt-3"> {val.qty} </p>
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onClick={() => handleAddition(val.id)}
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
                     </li>
                   );
                 })}
                 <li className="row my-3 relative">
-                
                   <div className="col-8 row align-items-center">
                     <h5 className="fw-bold">Total: </h5>
                   </div>
@@ -148,7 +140,9 @@ export const CartDetails = () => {
 
         <Link to="/">
           <div className="text-center">
-          <button className="text-center btn hero-btn  my-5">Back to Home Page</button>
+            <button className="text-center btn hero-btn  my-5">
+              Back to Home Page
+            </button>
           </div>
         </Link>
       </div>

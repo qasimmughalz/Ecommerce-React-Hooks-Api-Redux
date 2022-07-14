@@ -20,16 +20,18 @@ export const MyActions = (state = initialStates, action) => {
         ApiData: action.payload,
       };
     case "ProductQuntityAddition":
-        const obj =  state.allProducts.map((el)=> el.id === action.payload ? {...el , qty: el.qty+1 } : el)
-        console.log("dispatch dunction ", obj)
+      const obj = state.allProducts.map((el) =>
+        el.id === action.payload ? { ...el, qty: el.qty + 1 } : el
+      );
+      console.log("dispatch dunction ", obj);
       return {
-            ...state, 
-            allProducts: obj
-        };
+        ...state,
+        allProducts: obj,
+      };
 
     case "AddToCart":
-      console.log("payload", action.payload)
-      console.log("payload", state.ApiData)
+      console.log("payload", action.payload);
+      console.log("payload", state.ApiData);
       const filter = state.ApiData.find((e) => e.id === action.payload);
       filter.qty = 1;
       return {
